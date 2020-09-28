@@ -1,0 +1,43 @@
+version: '3.2'
+
+services:
+  fpm:
+    build: ./docker/php
+    image: php:7.4-fpm
+    networks:
+      - app-network
+    tty: true
+    ports:
+      - 9001:9000
+    working_dir: /var/www/app
+    volumes:
+      - ./:/var/www/app
+  mysql:
+    image: mysql:latest
+    networks:
+      - app-network
+    environment:
+      MYSQL_DATABASE: books
+      MYSQL_ROOT_PASSWORD: rootbooks
+      MYSQL_USER: books
+      MYSQL_PASSWORD: books
+    ports:
+      - 3309:3306
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - fpm
+    networks:
+      - app-network
+    ports:
+      - 81:80
+    volumes:
+      - ./:/var/www/app
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/logs:/var/log/nginx
+
+networks:
+  app-network:
+    driver: bridge

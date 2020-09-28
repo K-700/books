@@ -1,0 +1,3 @@
+# ignore logs
+/logs/access.log
+/logs/error.log

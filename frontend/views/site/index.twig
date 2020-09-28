@@ -1,0 +1,22 @@
+{{ GridView.widget({
+    'options': {'id': 'dynagrid-books-top'},
+    'dataProvider': dataProvider,
+    'filterModel': searchModel,
+    'pjax': true,
+    'columns': [
+        {'class': 'kartik\\grid\\SerialColumn'},
+        {
+            'attribute': 'photo_url',
+            'format': 'raw',
+            'value': photoCallback,
+        },
+        {'attribute': 'name'},
+        {'attribute': 'author.name'},
+        {
+            'attribute': 'rating',
+            'headerOptions': {
+                'style': 'width: 5%'
+            }
+        }
+    ],
+})|raw }}

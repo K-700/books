@@ -1,0 +1,22 @@
+{
+    "require": {
+        "php": ">=7.4.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-httpclient": "~2.0.0",
+        "twig/twig": "~3.0.3",
+        "yiisoft/yii2-twig": "~2.4.0",
+        "kartik-v/yii2-grid": "~3.3.5",
+        "omnilight/yii2-scheduling": "~1.1.4"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.1.0",
+        "yiisoft/yii2-gii": "~2.1.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
